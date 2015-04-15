@@ -1,0 +1,51 @@
+<h1>New Shop</h1>
+
+<%= form_for :shop, url: shops_path do |f| %>
+  <p>
+    <%= f.label :chain %><br>
+    <%= f.text_field :chain %>
+  </p>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </p>
+
+  <p>
+    <%= f.label :latitude %><br>
+    <%= f.text_area :latitude %>
+  </p>
+
+  <p>
+    <%= f.label :longitude %><br>
+    <%= f.text_area :longitude %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_area :city %>
+  </p>
+
+  <p>
+    <%= f.label :zip %><br>
+    <%= f.text_area :zip %>
+  </p> 
+  <p>
+    <%= f.label :phone %><br>
+    <%= f.text_area :phone %>
+  </p> 
+  <p>
+    <%= f.label :country_code %><br>
+    <%= f.text_area :country_code %>
+  </p> 
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
