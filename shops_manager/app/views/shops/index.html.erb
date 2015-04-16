@@ -1,0 +1,30 @@
+<h1>Listing Shops</h1>
+ 
+<table>
+  <tr>
+    <th>Chain</th>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Country Code</th>
+  </tr>
+ 
+  <% @shop.each do |shop| %>
+    <tr>
+      <td><%= shop.chain %></td>
+      <td><%= shop.name %></td>
+      <td><%= shop.latitude %></td>
+      <td><%= shop.longitude %></td>
+      <td><%= shop.address %></td>
+      <td><%= shop.city %></td>
+      <td><%= shop.zip %></td>
+      <td><%= shop.country_code %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add a shop', new_shop_path %>
