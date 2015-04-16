@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415160615) do
+ActiveRecord::Schema.define(version: 20150416104938) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "chain",        limit: 255
     t.string   "name",         limit: 255
-    t.integer  "latitude",     limit: 4
-    t.integer  "longitude",    limit: 4
-    t.text     "address",      limit: 65535
+    t.float    "latitude",     limit: 24
+    t.float    "longitude",    limit: 24
+    t.string   "address",      limit: 255
     t.string   "city",         limit: 255
     t.integer  "zip",          limit: 4
     t.string   "phone",        limit: 255
     t.string   "country_code", limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
