@@ -1,6 +1,40 @@
-<h1>Listing Shops</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <% content_for :title, "My Shops" %>
+    <%= stylesheet_link_tag "style.css" %>
+  </head>
+<body>
+
+<h1>Shops Manager</h1>
+
+<h3>Find nearby shops</h3>
+
+<%= form_tag shops_path, :method => 'get' do %>
+  <%= label_tag("Id of the Shop") %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag("Search") %>
+
+<% end %>
+
+<% if @results %>
+
+    <ul>
+        <li><%= @results.chain %></li>
+        <li><%= @results.name %></li>
+        <li><%= @results.latitude %></li>
+        <li><%= @results.longitude %></li>
+    </ul>
+
+<% else %>
+  <tr><td>No search results</td></tr>
+<% end %>
 
 
+
+
+<h3> All the shops</h3>
+<div id="scrollable_shops"> 
 <table>
   <tr>
     <th>Chain</th>
@@ -32,5 +66,7 @@
     </tr>
   <% end %>
 </table>
+</div>
 
 <%= link_to 'Add a shop', new_shop_path %>
+</body>

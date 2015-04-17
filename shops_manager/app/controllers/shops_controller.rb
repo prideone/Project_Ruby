@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
 	def index
+		@results = Shop.search(params[:search])
     	@shop = Shop.all
   	end
 
@@ -44,12 +45,14 @@ class ShopsController < ApplicationController
  
 	private
 	  def shop_params
-	    params.require(:shop).permit(:chain, :name, :latittude, :longitude, :address, :city, :zip, :phone, :coutry_code)
+	  	params.require(:shop).permit(:chain, :name, :latittude, :longitude, :address, :city, :zip, :phone, :coutry_code)
 	  end
 
-	  def delete_all
-	  	@shop = Shop.delete_all
-	  	@shop.destroy_all
+	  def around
 	  	
 	  end
+
+	  def close_to
+	  end
+
 end
