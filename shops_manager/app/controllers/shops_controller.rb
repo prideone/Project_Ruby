@@ -1,6 +1,12 @@
 class ShopsController < ApplicationController
 	def index
-		@results = Shop.search(params[:search])
+		/if params[:latittude] and params[:longitude] and params[:rad]/
+			@results = Shop.within(:rad, :units => :kms, :origin => [:latittude, :longitude])
+    	
+    	/else
+
+    	end/
+
     	@shop = Shop.all
   	end
 

@@ -1,9 +1,3 @@
 class Shop < ActiveRecord::Base
-	def self.search(search)
-		if search
-			find(search)
-    	else
-    		
-    	end
-    end
+	acts_as_mappable
 end

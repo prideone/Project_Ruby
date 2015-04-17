@@ -11,21 +11,27 @@
 <h3>Find nearby shops</h3>
 
 <%= form_tag shops_path, :method => 'get' do %>
-  <%= label_tag("Id of the Shop") %>
-  <%= text_field_tag :search, params[:search] %>
+  <%= label_tag("Latitude") %>
+  <%= text_field_tag :latitude, params[:latitude] %>
+  <%= label_tag("Longitude") %>
+  <%= text_field_tag :longitude, params[:longitude] %>
+    <%= label_tag("Radius") %>
+  <%= text_field_tag :rad, params[:rad] %>
   <%= submit_tag("Search") %>
 
 <% end %>
 
+<p>Je suis hors du if</p>
 <% if @results %>
-
+<p>Je suis dansle if</p>
+  <% @results.each do |result| %>
     <ul>
-        <li><%= @results.chain %></li>
-        <li><%= @results.name %></li>
-        <li><%= @results.latitude %></li>
-        <li><%= @results.longitude %></li>
+        <li><%= result.chain %></li>
+        <li><%= result.name %></li>
+        <li><%= result.latitude %></li>
+        <li><%= result.longitude %></li>
     </ul>
-
+  <% end%>
 <% else %>
   <tr><td>No search results</td></tr>
 <% end %>
