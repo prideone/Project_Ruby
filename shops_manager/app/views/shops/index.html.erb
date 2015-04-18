@@ -6,40 +6,74 @@
   </head>
 <body>
 
+<%= image_tag 'logo_shopmium.png' %>
+
 <h1>Shops Manager</h1>
 
+<div id="left_search">
 <h3>Find nearby shops</h3>
 
 <%= form_tag shops_path, :method => 'get' do %>
+  <p class="form">
   <%= label_tag("Latitude") %>
+  </p>
+  <p class="form">
   <%= text_field_tag :latitude, params[:latitude] %>
+  </p>
+  <p class="form">
   <%= label_tag("Longitude") %>
+  </p>
+  <p class="form">
   <%= text_field_tag :longitude, params[:longitude] %>
-    <%= label_tag("Radius") %>
+  </p>
+  <p class="form">
+  <%= label_tag("Radius") %>
+  </p>
+  <p class="form">
   <%= number_field_tag :rad, params[:rad] %>
+  </p>
+  <p class="form">
   <%= submit_tag("Search") %>
+  </p>
 
 <% end %>
+</div>
 
-
+<div id="rigth_search">
 <h3>Find X shops close to you</h3>
 
 <%= form_tag shops_path, :method => 'get' do %>
+  <p class="form">
   <%= label_tag("Latitude") %>
+  </p>
+  <p class="form">
   <%= text_field_tag :latitude, params[:latitude] %>
+  </p>
+  <p class="form">
   <%= label_tag("Longitude") %>
+  </p>
+  <p class="form">
   <%= text_field_tag :longitude, params[:longitude] %>
-    <%= label_tag("Number of Shops") %>
+  </p>
+  <p class="form">
+  <%= label_tag("Number of Shops") %>
+  </p>
+  <p class="form">
   <%= number_field_tag :nb_shops, params[:nb_shops] %>
+  </p>
+  <p class="form">
   <%= submit_tag("Search") %>
+  </p>
 
 <% end %>
+</div>
 
 
-
-<h3> Shops</h3>
+<div id="shop_list">
+<h2> Shops</h2>
+<%= link_to '<button type="button">Add a shop</button>'.html_safe, new_shop_path %>
 <div id="scrollable_shops"> 
-<table>
+<table id="shops">
   <tr>
     <!--<th>Chain</th>-->
     <th>Name</th>
@@ -64,14 +98,12 @@
       <td><%= shop.phone %></td>
       <!--<td><%= shop.zip %></td>-->
       <!--<td><%= shop.country_code %></td>-->
-      <td><%= link_to 'Show', shop_path(shop) %></td>
-      <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-      <td><%= link_to 'Destroy', shop_path(shop),
+      <td><%= link_to '<button type="button">Show</button>'.html_safe, shop_path(shop) %></td>
+      <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_shop_path(shop) %></td>
+      <td><%= link_to '<button type="button">Delete</button>'.html_safe, shop_path(shop),
               method: :delete %></td>
     </tr>
   <% end %>
 </table>
 </div>
-
-<%= link_to 'Add a shop', new_shop_path %>
 </body>

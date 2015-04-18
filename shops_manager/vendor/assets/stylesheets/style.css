@@ -2,3 +2,53 @@
 	overflow: scroll;
 	height: 400px;
 }
+
+.form{
+	margin:1px;
+}
+
+#left_search{
+	float: left;
+	margin-left: 15%;
+}
+#rigth_search{
+	float: left;
+	margin-left: 25%;
+	
+}
+#shop_list{
+	clear: both;
+}
+h2{
+	display: inline;
+	color: #EE297F;
+}
+h1{
+	color: #EE297F;
+}
+h3{
+	color: #EE297F;
+}
+strong{
+	color: #EE297F;
+}
+html *
+{
+   font-size: 1em !important;
+   font-family: Arial !important;
+}
+#shops th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    background-color: #EE297F;
+    color: #ffffff;
+}
+#shops td, #shops th {
+    font-size: 1em;
+    border: 1px solid #EE297F;
+    padding: 3px 7px 2px 7px;
+}
