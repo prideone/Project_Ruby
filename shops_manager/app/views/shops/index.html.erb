@@ -16,55 +16,54 @@
   <%= label_tag("Longitude") %>
   <%= text_field_tag :longitude, params[:longitude] %>
     <%= label_tag("Radius") %>
-  <%= text_field_tag :rad, params[:rad] %>
+  <%= number_field_tag :rad, params[:rad] %>
   <%= submit_tag("Search") %>
 
 <% end %>
 
-<p>Je suis hors du if</p>
-<% if @results %>
-<p>Je suis dansle if</p>
-  <% @results.each do |result| %>
-    <ul>
-        <li><%= result.chain %></li>
-        <li><%= result.name %></li>
-        <li><%= result.latitude %></li>
-        <li><%= result.longitude %></li>
-    </ul>
-  <% end%>
-<% else %>
-  <tr><td>No search results</td></tr>
+
+<h3>Find X shops close to you</h3>
+
+<%= form_tag shops_path, :method => 'get' do %>
+  <%= label_tag("Latitude") %>
+  <%= text_field_tag :latitude, params[:latitude] %>
+  <%= label_tag("Longitude") %>
+  <%= text_field_tag :longitude, params[:longitude] %>
+    <%= label_tag("Number of Shops") %>
+  <%= number_field_tag :nb_shops, params[:nb_shops] %>
+  <%= submit_tag("Search") %>
+
 <% end %>
 
 
 
-
-<h3> All the shops</h3>
+<h3> Shops</h3>
 <div id="scrollable_shops"> 
 <table>
   <tr>
-    <th>Chain</th>
+    <!--<th>Chain</th>-->
     <th>Name</th>
     <th>Latitude</th>
     <th>Longitude</th>
     <th>Address</th>
     <th>City</th>
-    <th>Zip</th>
+    <!-- <th>Zip</th> -->
     <th>Phone</th>
-    <th>Country Code</th>
+    <!-- <th>Country Code</th> -->
     <th colspan="3"></th>
   </tr>
  
   <% @shop.each do |shop| %>
     <tr>
-      <td><%= shop.chain %></td>
+      <!--<td><%= shop.chain %></td>--> 
       <td><%= shop.name %></td>
       <td><%= shop.latitude %></td>
       <td><%= shop.longitude %></td>
       <td><%= shop.address %></td>
       <td><%= shop.city %></td>
-      <td><%= shop.zip %></td>
-      <td><%= shop.country_code %></td>
+      <td><%= shop.phone %></td>
+      <!--<td><%= shop.zip %></td>-->
+      <!--<td><%= shop.country_code %></td>-->
       <td><%= link_to 'Show', shop_path(shop) %></td>
       <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
       <td><%= link_to 'Destroy', shop_path(shop),

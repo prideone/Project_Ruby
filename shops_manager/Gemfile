@@ -43,5 +43,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'geokit-rails'
+  gem 'graticule'
+  gem 'acts_as_geocodable'
+  gem 'geo-distance', '~> 0.2.0'
 end
 

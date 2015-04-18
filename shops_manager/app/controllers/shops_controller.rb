@@ -1,13 +1,34 @@
 class ShopsController < ApplicationController
 	def index
-		/if params[:latittude] and params[:longitude] and params[:rad]/
-			@results = Shop.within(:rad, :units => :kms, :origin => [:latittude, :longitude])
-    	
-    	/else
+		
+		#GEOKIT NOT WORKING =>
+		if params[:latitude] and params[:longitude]
+			if params[:rad]
+				@shop = Shop.within(50, :units => :kms, :origin => [47.792,2.393])
+				#@results = Shop.within(:rad, :units => :kms, :origin => [:latitude, :longitude])
+				#en remplaçant par latitude, longitude et radius la il ne trouve pas la method to_f. Surement un problème de configuration du plugin
+				#que je n'arrive pas à résoudre
+			end
+			if params[:nb_shops]
+				origin = [:latitude, :longitude]
+				@distance = Shop.distance_sql(origin, units = :kms, formula = :sphere)
+				#@shop = 
+			end
 
-    	end/
+		else
+			@shop = Shop.all
+    	end
 
-    	@shop = Shop.all
+
+    	#autres plugins essayés mais plus de problèmes encore
+
+    	#GRATICULE
+    	#distance_sql=Graticule::Distance::Spherical.to_sql(:latitude => :latitude, :longitude => :longitude, :units => :kilometers)
+    	#@results = Shop.all(:conditions => [ "#{distance_sql} <= #{params[:rad]}" ])
+    	#@results = Shop.all(:within => :rad, :origin => [:latittude, :longitude], :units => :kilometers)
+
+    	#GEODISTANCE
+
   	end
 
 	def show
