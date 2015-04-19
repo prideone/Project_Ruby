@@ -11,8 +11,11 @@ class ShopsController < ApplicationController
 			end
 			if params[:nb_shops]
 				origin = [:latitude, :longitude]
-				@distance = Shop.distance_sql(origin, units = :kms, formula = :sphere)
-				#@shop = 
+				@distance[] = Shop.distance_sql(origin, :units = :kms, :formula = :sphere)
+				#trier le tableau des distances dans l'ordre croissant 
+
+				#for loop de nb_shops
+				#@shop = @shop + @distance[i]
 			end
 
 		else
